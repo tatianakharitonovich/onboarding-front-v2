@@ -1,6 +1,6 @@
 import { PostKey } from '~/models'
 
-export type CommentKey = string
+export type CommentKey = number
 
 export type CommentData = {
   id: CommentKey

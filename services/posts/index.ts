@@ -10,8 +10,8 @@ PostKey
 > {
   comments: CommentsService
 
-  constructor(protected endpoint: string, ctx: Context) {
-    super(endpoint, ctx)
-    this.comments = new CommentsService(`${endpoint}/comments`, ctx)
+  constructor(protected app: string, ctx: Context, root?: string) {
+    super(app, ctx, root)
+    this.comments = new CommentsService('comments', ctx, this.baseURL)
   }
 }

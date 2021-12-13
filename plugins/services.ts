@@ -1,6 +1,12 @@
 import { Plugin } from '@nuxt/types'
 import { Services, makeServices } from '~/services'
 
+declare module 'vuex-module-decorators' {
+  interface VuexModule {
+    $services: Services
+  }
+}
+
 declare module 'vue/types/vue' {
   interface Vue {
     $services: Services
@@ -24,8 +30,8 @@ declare module 'vuex/types/index' {
   }
 }
 
-const serviceProvider: Plugin = (ctx, inject) => {
+const servicesInjector: Plugin = (ctx, inject) => {
   inject('services', makeServices(ctx))
 }
 
-export default serviceProvider
+export default servicesInjector

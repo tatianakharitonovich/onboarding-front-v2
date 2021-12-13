@@ -12,6 +12,7 @@ module.exports = {
   plugins: [
   ],
   rules: {
+    'no-console': 'warn',
     'brace-style': ['error', '1tbs'],
     'curly': ['error', 'all'],
     'space-before-function-paren': ['error', {

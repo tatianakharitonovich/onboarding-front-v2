@@ -5,22 +5,28 @@ import {
   IApiFullService,
   IApiReadService,
   IApiReadWriteService,
-  ICancellable,
   ReadData,
-  PaginatedReadFilters,
   ReadParams,
   ApiResponse,
   UpdatePayload,
   extendApiInstance,
+  RetrievePayload,
+  ReadPayload,
+  EndpointKeys,
+  CreatePayload,
+  IApiService,
 } from '~/services'
 
-export class ApiService {
+export class ApiService implements IApiService {
   protected api: NuxtAxiosInstance
+  baseURL: string
 
-  constructor(protected endpoint: string, ctx: Context) {
+  constructor(protected app: string, ctx: Context, root?: string) {
+    const baseURL = root || ctx.$axios.defaults.baseURL
     this.api = ctx.$axios.create({
-      baseURL: `${this.endpoint}/`,
+      baseURL,
     })
+    this.baseURL = `${baseURL}${app}/`
     extendApiInstance(this.api, ctx)
   }
 
@@ -55,15 +61,19 @@ export class ApiReadService<
 >
   extends ApiService
   implements IApiReadService<TGetModel, TKey, TReadModel, TFilters> {
-  get = (id: TKey): ApiResponse<TGetModel> => this.api.get(`${id}/`)
+  endpoint({ id, parentId }: EndpointKeys<TKey> = {}): string {
+    return `${parentId ? `${parentId}/` : ''}${this.app}/${id ? `${id}/` : ''}`
+  }
+
+  get = (payload: RetrievePayload<TKey>): ApiResponse<TGetModel> =>
+    this.api.get(this.endpoint(payload))
 
   read = (
-    payload?: ReadParams<TFilters>,
+    payload?: ReadPayload<TFilters>,
   ): ApiResponse<ReadData<TReadModel>> => {
-    const { cancelToken, ...params }: ICancellable & PaginatedReadFilters = (payload
-      || {}) as ReadParams<TFilters>
+    const { cancelToken, ...params }: ReadParams = (payload?.params || {}) as ReadParams<TFilters>
     params.page_size = params.page_size || DEFAULT_PAGE_SIZE
-    return this.api.get('', { params, cancelToken })
+    return this.api.get(this.endpoint(payload), { params, cancelToken })
   }
 }
 
@@ -87,9 +97,9 @@ export class ApiReadWriteService<
     > {
   formProcessor = false
 
-  create = (payload: TCreateModel): ApiResponse<TGetModel> =>
+  create = (payload: CreatePayload<TCreateModel>): ApiResponse<TGetModel> =>
     this.api.post(
-      '',
+      this.endpoint(payload),
       this.formProcessor ? this.convertToFormData(payload) : payload,
     )
 
@@ -97,7 +107,7 @@ export class ApiReadWriteService<
     payload: UpdatePayload<TUpdateModel, TKey>,
   ): ApiResponse<TGetModel> =>
     this.api.patch(
-      `${payload.id}/`,
+      this.endpoint(payload),
       this.formProcessor ? this.convertToFormData(payload.data) : payload.data,
     )
 
@@ -105,7 +115,7 @@ export class ApiReadWriteService<
     payload: UpdatePayload<TCreateModel, TKey>,
   ): ApiResponse<TGetModel> =>
     this.api.put(
-      `${payload.id}/`,
+      this.endpoint(payload),
       this.formProcessor ? this.convertToFormData(payload.data) : payload.data,
     )
 }
@@ -135,5 +145,5 @@ export class ApiFullService<
     TCreateModel,
     TUpdateModel
     > {
-  delete = (id: TKey): ApiResponse<void> => this.api.delete(`${id}/`)
+  delete = (payload: RetrievePayload<TKey>): ApiResponse<void> => this.api.delete(this.endpoint(payload))
 }

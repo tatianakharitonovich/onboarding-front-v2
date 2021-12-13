@@ -1,6 +1,6 @@
 export default {
   hello: 'Hello',
-  posts: {
-    title: 'Posts from JSONPlaceholder',
+  items: {
+    title: '«Artworks» from test server',
   },
 }

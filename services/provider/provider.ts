@@ -1,7 +1,7 @@
 import { Context } from '@nuxt/types'
-import { PostsService } from '..'
-import { Services } from '.'
+import { Services, PostsService } from '~/services'
 
+// eslint-disable-next-line import/no-mutable-exports
 let $services: Services
 
 export const makeServices = (ctx: Context): Services => {
@@ -10,3 +10,5 @@ export const makeServices = (ctx: Context): Services => {
   }
   return $services
 }
+
+export { $services }

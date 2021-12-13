@@ -4,6 +4,8 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  store: false,
+
   loading: {
     color: '#242424',
     failedColor: '#FF392B',
@@ -101,7 +103,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: 'https://jsonplaceholder.typicode.com/',
+    baseURL: 'https://picipo.be7team.com/api/v1/',
   },
 
   // I18n module configuration: https://i18n.nuxtjs.org/options-reference

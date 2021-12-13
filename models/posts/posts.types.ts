@@ -1,6 +1,6 @@
 import { CommentData, ICommentModel } from '~/models'
 
-export type PostKey = string
+export type PostKey = number
 
 // Necessary data received from API server
 export type PostData = {

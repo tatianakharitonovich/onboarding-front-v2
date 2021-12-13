@@ -1,4 +1,8 @@
-import { ReadData, ReadParams, ApiResponse, UpdatePayload } from '~/services'
+import { ReadData, ApiResponse, UpdatePayload, RetrievePayload, ReadPayload, CreatePayload, EndpointKeys } from '~/services'
+
+export interface IApiService {
+  baseURL: string
+}
 
 /** Read only */
 export interface IApiReadService<
@@ -7,8 +11,9 @@ export interface IApiReadService<
   TReadModel = TGetModel,
   TFilters = Partial<TReadModel>
 > {
-  get(id: TKey): ApiResponse<TGetModel>
-  read(params: ReadParams<TFilters>): ApiResponse<ReadData<TReadModel>>
+  endpoint(keys?: EndpointKeys<TKey>): string
+  get(payload: RetrievePayload<TKey>): ApiResponse<TGetModel>
+  read(params: ReadPayload<TFilters>): ApiResponse<ReadData<TReadModel>>
 }
 
 /** Read and write */
@@ -21,7 +26,7 @@ export interface IApiReadWriteService<
   TUpdateModel = TGetModel
 > extends IApiReadService<TGetModel, TKey, TReadModel, TFilters> {
   formProcessor: boolean
-  create(payload: TCreateModel): ApiResponse<TGetModel>
+  create(payload: CreatePayload<TCreateModel>): ApiResponse<TGetModel>
   update(payload: UpdatePayload<TUpdateModel, TKey>): ApiResponse<TGetModel>
   replace(payload: UpdatePayload<TCreateModel, TKey>): ApiResponse<TGetModel>
 }
@@ -42,5 +47,5 @@ export interface IApiFullService<
   TCreateModel,
   TUpdateModel
   > {
-  delete(id: TKey): ApiResponse<void>
+  delete(payload: RetrievePayload<TKey>): ApiResponse<void>
 }
