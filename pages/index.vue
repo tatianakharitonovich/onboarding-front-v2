@@ -10,8 +10,9 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component
 export default class HomePage extends Vue {
   async mounted() {
-    console.log((await this.$modules.posts.read()).data)
-    console.log((await this.$modules.comments.read({ parentId: 2 })).data)
+    const items = (await this.$modules.items.read()).data?.results || []
+    console.log(items)
+    console.log((await this.$modules.collections.get({ id: items[0].collections[0].id })).data)
   }
 }
 </script>

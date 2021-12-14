@@ -1,25 +1,25 @@
 import { Module } from 'vuex-module-decorators'
-import { IPostModel, PostData, PostKey, PostModel } from '~/models'
-import { ApiFullModule } from '~/store'
+import { IItemModel, ItemData, ItemKey, ItemModel } from '~/models'
+import { ApiReadWriteModule } from '~/store'
 import { $services } from '~/services'
 
-export * from './comments'
+export * from './collections'
 
 @Module({
-  name: 'posts',
+  name: 'items',
   stateFactory: true,
   namespaced: true,
 })
-export class PostsModule extends ApiFullModule<PostData, IPostModel, PostKey> {
+export class ItemsModule extends ApiReadWriteModule<ItemData, IItemModel, ItemKey> {
   get service() {
-    return $services.posts
+    return $services.items
   }
 
   get GetModel() {
-    return PostModel
+    return ItemModel
   }
 
   get ReadModel() {
-    return PostModel
+    return ItemModel
   }
 }

@@ -1,6 +1,6 @@
-import { CommentsModule, PostsModule } from '~/store'
+import { CollectionsModule, ItemsModule } from '~/store'
 
 export type Modules = {
-  posts: PostsModule
-  comments: CommentsModule
+  items: ItemsModule
+  collections: CollectionsModule
 }

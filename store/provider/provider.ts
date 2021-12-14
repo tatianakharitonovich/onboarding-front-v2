@@ -1,15 +1,15 @@
 import { Context } from '@nuxt/types'
 import { getModule } from 'vuex-module-decorators'
 import { Store } from 'vuex'
-import { Modules, PostsModule, CommentsModule } from '~/store'
+import { Modules, ItemsModule, CollectionsModule } from '~/store'
 
 export const makeStore = (ctx: Context): Modules => {
   ctx.store = new Store({})
-  ctx.store.registerModule('posts', PostsModule)
-  ctx.store.registerModule('posts/comments', CommentsModule)
+  ctx.store.registerModule('items', ItemsModule)
+  ctx.store.registerModule('items/collections', CollectionsModule)
 
   return {
-    posts: getModule(PostsModule, ctx.store),
-    comments: getModule(CommentsModule, ctx.store),
+    items: getModule(ItemsModule, ctx.store),
+    collections: getModule(CollectionsModule, ctx.store),
   }
 }

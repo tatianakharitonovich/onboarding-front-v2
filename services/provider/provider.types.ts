@@ -1,5 +1,5 @@
-import { PostsService } from '~/services'
+import { ItemsService } from '~/services'
 
 export type Services = {
-  posts: PostsService
+  items: ItemsService
 }
