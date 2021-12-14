@@ -1,0 +1,84 @@
+/* fonts */
+@font-face {
+  font-family: 'Mulish';
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+  src:
+    local('Mulish'),
+    url('../fonts/Mulish/Mulish-VariableFont_wght.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+  src:
+    local('Roboto'),
+    url('../fonts/Roboto/Roboto-Regular.ttf') format("truetype");
+}
+@font-face {
+  font-family: 'Roboto';
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+  src:
+    local('Roboto'),
+    url('../fonts/Roboto/Roboto-Black.ttf') format("truetype");
+}
+
+/* skins */
+:root {
+  /* COMMON PALETTE */
+  --c-black: 0, 0, 0;
+  --c-dark: 24, 25, 29;
+  --c-white: 255, 255, 255;
+  --c-light: 242, 242, 245;
+
+  /* LIGHT THEME */
+  --c-accent: 54, 13, 219;
+  --c-accent-brighter: 74, 43, 239;
+  // text
+  --c-color-base: 24, 24, 24;
+  --c-color-dim-1: 44, 45, 47;
+  --c-color-dim-2: 165, 166, 168;
+  --c-color-dim-3: 197, 197, 201;
+  // bg
+  --c-bg-base: 255, 255, 255;
+  --c-bg-dim-1: 233, 234, 241;
+
+  --c-theme-switcher-bg: var(--c-color-dim-2);
+  --c-theme-switcher-bg-hover: var(--c-accent);
+  --c-theme-switcher-border: var(--c-color-dim-3);
+  --c-theme-switcher-border-hover: var(--c-color-dim-2);
+
+  --c-nav-border: var(--c-color-dim-3);
+
+  // shadows
+  --s-card: 0 1rem 1rem rgba(var(--c-color-base), 0.25);
+  --s-title: 0 0.25em 0.5em rgba(var(--c-color-base), 0.5);
+}
+.dark-mode {
+  /* DARK THEME */
+  --c-accent: 145, 117, 255;
+  --c-accent-brighter: 165, 137, 255;
+  // text
+  --c-color-base: 255, 255, 255;
+  --c-color-dim-1: 227, 227, 229;
+  --c-color-dim-2: 75, 75, 96;
+  --c-color-dim-3: 45, 45, 57;
+  // bg
+  --c-bg-base: 19, 19, 24;
+  --c-bg-dim-1: 30, 30, 34;
+
+  --c-theme-switcher-bg: var(--c-color-dim-2);
+  --c-theme-switcher-bg-hover: var(--c-accent);
+  --c-theme-switcher-border: var(--c-color-dim-3);
+  --c-theme-switcher-border-hover: var(--c-accent);
+
+  --c-nav-border: var(--c-color-dim-3);
+
+  // shadows
+  --s-card: 0 1rem 1rem rgba(var(--c-color-base), 0.25);
+  --s-title: 0 0.25em 0.5em rgba(var(--c-color-base), 0.5);
+}

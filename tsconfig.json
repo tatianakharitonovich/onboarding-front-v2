@@ -30,7 +30,7 @@
       "@nuxtjs/axios",
       "@nuxt/content",
       "@types/node",
-      "nuxt-i18n",
+      "@nuxtjs/i18n",
       "@nuxtjs/color-mode",
     ]
   },

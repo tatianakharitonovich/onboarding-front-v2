@@ -4,7 +4,7 @@ import { title } from '@/package.json'
 
 @Component({
   head(this: TitledPage): any {
-    const i18nHead: MetaInfo = this.$nuxtI18nHead({ addSeoAttributes: true })
+    const i18nHead: MetaInfo = (this as any).$nuxtI18nHead({ addSeoAttributes: true })
     const dataTitle = this.data?.title
     return {
       ...i18nHead,

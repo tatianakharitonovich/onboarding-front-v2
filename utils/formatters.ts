@@ -2,6 +2,10 @@ export function _link(value?: string, secure = true) {
   return value ? (value?.match(/^http(s?):\/\//g) ? '' : `http${secure ? 's' : ''}://`) + value : ''
 }
 
+export function _capitalize(value: string) {
+  return value ? `${value.slice(0, 1).toUpperCase()}${value.slice(1)}` : ''
+}
+
 export function _fill(value: string | number, len = 2, filler = '0', after = false) {
   let res = value.toString()
   if (res.length < len) {

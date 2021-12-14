@@ -3,11 +3,12 @@ export const defaultTheme = 'dark'
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
+  ssr: false,
 
   store: false,
 
   loading: {
-    color: '#242424',
+    color: 'rgb(var(--c-accent))',
     failedColor: '#FF392B',
     height: '2px',
   },
@@ -67,7 +68,7 @@ export default {
     '@nuxt/content',
 
     '@nuxtjs/style-resources',
-    'nuxt-i18n',
+    '@nuxtjs/i18n',
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
@@ -120,7 +121,6 @@ export default {
         file: 'ru-RU.js',
       },
     ],
-    strategy: 'prefix_and_default', // redirect from default prefix to root
     seo: true,
     lazy: true,
     langDir: 'lang/',
@@ -128,7 +128,6 @@ export default {
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      onlyOnRoot: true,
     },
   },
 

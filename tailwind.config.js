@@ -1,5 +1,6 @@
 const plugin = require('tailwindcss/plugin')
 const addHeaders = require('./tailwind/headers')
+const addLayouts = require('./tailwind/layouts')
 
 function c(color, opacityValue) {
   return opacityValue === undefined
@@ -29,14 +30,10 @@ const sansSerif = [
   '"Noto Color Emoji"',
 ]
 
+// Read more about tailwindcss configuration: https://tailwindcss.com/docs/configuration
 module.exports = {
   mode: 'jit',
   prefix: 'tw-',
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-    require('@tailwindcss/aspect-ratio'),
-    plugin(addHeaders),
-  ],
   theme: {
     // structure
     fontSize: {
@@ -50,6 +47,8 @@ module.exports = {
       '3xl': '1.875rem',
       '4xl': '2.25rem',
       '5xl': '3.5rem',
+      'unset': 'unset',
+      'inherit': 'inherit',
     },
     container: {
       center: true,
@@ -59,21 +58,22 @@ module.exports = {
         lg: '2rem',
       },
     },
+    gridTemplateColumns: {
+      cards: 'repeat(auto-fill, minmax(14rem, 1fr))',
+    },
     colors: {
       black: co('--c-black'),
+      dark: co('--c-dark'),
       white: co('--c-white'),
+      light: co('--c-light'),
 
-      gray: Array(11).reduce((obj, _, index) => {
-        return {
-          ...obj,
-          [index]: co(`--c-gray-${index}`),
-        }
-      }, {}),
-
-      accent: co('--c-accent'),
+      accent: {
+        DEFAULT: co('--c-accent'),
+        brighter: co('--c-accent-brighter'),
+      },
     },
     fontFamily: {
-      header: ['Raleway', ...sansSerif],
+      header: ['Mulish', ...sansSerif],
       sans: ['Roboto', ...sansSerif],
     },
     lineHeight: {
@@ -82,20 +82,40 @@ module.exports = {
       sm: 1.15,
     },
     // skins
-    textColor: {
+    textColor: theme => ({
+      ...theme('colors'),
       base: co('--c-color-base'),
-      muted: co('--c-color-muted'),
-    },
-    backgroundColor: {
-      base: co('--c-bg-base'),
-      alt: co('--c-bg-alt'),
-    },
+      dim: {
+        1: co('--c-color-dim-1'),
+        2: co('--c-color-dim-2'),
+        3: co('--c-color-dim-3'),
+      },
+    }),
+    backgroundColor: theme => ({
+      ...theme('colors'),
+      'base': co('--c-bg-base'),
+      'dim': {
+        1: co('--c-bg-dim-1'),
+      },
+      'theme-switcher': {
+        DEFAULT: co('--c-theme-switcher-bg'),
+        hover: co('--c-theme-switcher-bg-hover'),
+      },
+    }),
+    borderColor: theme => ({
+      ...theme('colors'),
+      'theme-switcher': {
+        DEFAULT: co('--c-theme-switcher-border'),
+        hover: co('--c-theme-switcher-border-hover'),
+      },
+      'nav': co('--c-nav-border'),
+    }),
     fill: {
-      contrast: co('--c-color'),
+      base: co('--c-color-base'),
     },
     opacity: {
       0: 0,
-      1: 1,
+      100: 1,
     },
     boxShadow: {
       card: 'var(--s-card)',
@@ -103,5 +123,36 @@ module.exports = {
     dropShadow: {
       title: 'var(--s-title)',
     },
+    extend: {
+      screens: {
+        '2xs': '320px',
+        'xs': '400px',
+      },
+    },
   },
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/aspect-ratio'),
+    plugin(addHeaders),
+    plugin(addLayouts),
+    ({ addUtilities, addComponents, theme }) => {
+      addUtilities({
+        '.b': {
+          borderWidth: theme('borderWidth.DEFAULT'),
+          borderStyle: 'solid',
+        },
+      })
+      addComponents({
+        '.link': {
+          'color': theme('colors.accent.DEFAULT'),
+          'fontWeight': theme('fontWeight.medium'),
+          'transitionDuration': theme('transitionDuration.300'),
+          '&:hover': {
+            color: theme('colors.accent.brighter'),
+            transitionDuration: theme('transitionDuration.150'),
+          },
+        },
+      })
+    },
+  ],
 }

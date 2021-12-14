@@ -1,0 +1,137 @@
+@mixin set-height($h: auto) {
+  height: $h;
+  min-height: $h;
+}
+
+@mixin set-width($w: auto) {
+  width: $w;
+  min-width: $w;
+}
+
+@mixin set-size($size: auto) {
+  @include set-height($size);
+  @include set-width($size);
+}
+
+@mixin circle($diameter) {
+  @include set-size($diameter);
+  border-radius: calc(#{$diameter} / 2);
+}
+
+@mixin visible-before-after($position: absolute) {
+  content: ' ';
+  display: flex;
+  position: $position;
+}
+
+@mixin flex-x-center() {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-y-center() {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+@mixin flex-center() {
+  @include flex-x-center();
+  @include flex-y-center();
+}
+
+@mixin my($value) {
+  margin-top: $value;
+  margin-bottom: $value;
+}
+
+@mixin mx($value) {
+  margin-left: $value;
+  margin-right: $value;
+}
+
+@mixin py($value) {
+  padding-top: $value;
+  padding-bottom: $value;
+}
+
+@mixin px($value) {
+  padding-left: $value;
+  padding-right: $value;
+}
+
+@mixin position-sticky() {
+  position: fixed;
+  @supports (position: sticky) {
+    position: sticky;
+  }
+}
+
+@mixin radius($h: 1rem) {
+  border-radius: calc(#{$h} / 2);
+  // border-radius: 0.5rem;
+}
+
+@mixin hide() {
+  @apply tw-overflow-hidden tw-fixed tw-opacity-0;
+  @include set-size(0);
+  left: -100%;
+  top: -100%;
+  z-index: -1;
+}
+
+@mixin stretch-x($offset: 0) {
+  left: $offset;
+  right: $offset;
+}
+
+@mixin stretch-y($offset: 0) {
+  top: $offset;
+  bottom: $offset;
+}
+
+@mixin stretch($offset: 0) {
+  @include stretch-x($offset);
+  @include stretch-y($offset);
+}
+
+@mixin cover() {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: cover;
+}
+
+@mixin ellipsis($lines: 1, $lineHeight: 1em) {
+  overflow: hidden;
+  line-height: $lineHeight;
+  max-height: $lines * $lineHeight + 0.15em;
+  -webkit-line-clamp: $lines;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+@mixin hidden-scrollbar() {
+  @apply tw-duration-300;
+  scrollbar-color: transparent transparent;
+
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    @apply tw-duration-300;
+    background-color: rgba(100, 100, 100, 0.2);
+    border-radius: 0.5rem;
+    border: 5px solid transparent;
+    background-clip: content-box;
+    opacity: 0;
+  }
+  &:hover {
+    scrollbar-color: rgba(100, 100, 100, 0.3) transparent;
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(100, 100, 100, 0.3);
+      opacity: 1;
+    }
+  }
+}

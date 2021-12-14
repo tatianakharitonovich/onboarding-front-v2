@@ -13,22 +13,6 @@
 
 <div class="container">
   <div>
-    Loading
-    <span class="loading-dot">.</span>
-    <span class="loading-dot">.</span>
-    <span class="loading-dot">.</span>
+    Loading...
   </div>
 </div>
-
-<script>
-  const dots = document.getElementsByClassName('loading-dot')
-  let nextDotIndex = dots.length - 1
-  setInterval(() => {
-    if (nextDotIndex === 0) {
-      Array.from(dots).forEach(dot => dot.removeAttribute('hidden'))
-      nextDotIndex = dots.length - 1
-    } else {
-      dots[nextDotIndex--].setAttribute('hidden', 'hidden')
-    }
-  }, 100)
-</script>
