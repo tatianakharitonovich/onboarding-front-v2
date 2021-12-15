@@ -1,3 +1,8 @@
+.nuxt-content-container {
+  position: static !important;
+}
+
+.nuxt-content,
 .text {
   max-width: 54rem;
   @apply tw-mx-auto tw-text-lg;

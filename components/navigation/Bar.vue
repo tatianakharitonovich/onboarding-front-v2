@@ -46,7 +46,7 @@ export default class NavigationBar extends Vue {
 
 <style lang="scss" scoped>
 .nav-bar {
-  @apply tw-bg-base tw-bg-opacity-nav tw-flex-center-x tw-py-4 tw-sticky tw-top-0 tw-border-b tw-border-nav;
+  @apply tw-bg-base tw-bg-opacity-nav tw-flex-center-x tw-py-4 tw-z-[1] tw-sticky tw-top-0 tw-border-b tw-border-nav;
   &-container {
     @apply tw-container tw-flex-center-y tw-space-x-8;
   }

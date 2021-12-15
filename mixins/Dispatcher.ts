@@ -1,5 +1,5 @@
 import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
-import { ReadData, ReadParams, ApiResponse } from '~/services'
+import { ReadData, ReadParams, ApiResponse, ReadPayload } from '~/services'
 
 type ItemValue = any
 
@@ -7,8 +7,8 @@ type ItemValue = any
 export class DispatcherMixin extends Vue {
   private cancelRequest?: () => void
 
-  @Prop() readonly params?: ReadParams
-  @Prop() readonly action!: (params?: ReadParams) => ApiResponse<ReadData>
+  @Prop() readonly payload?: ReadPayload
+  @Prop() readonly action!: (payload?: ReadPayload) => ApiResponse<ReadData>
   @Prop({ default: false }) readonly reloadOnParamsChange!: boolean
 
   items: ItemValue[] | null = null
@@ -27,17 +27,19 @@ export class DispatcherMixin extends Vue {
     searchParams?: ReadParams,
     replace?: boolean,
   ): Promise<void> {
-    console.log(this)
     this.loading = !replace && true
     const CancellationToken = this.$axios.CancelToken
     const responseData: ReadData | undefined = (
       await this.action({
-        ...this.params,
-        ...(searchParams || {}),
-        page: this.nextPage || 1,
-        cancelToken: new CancellationToken((c) => {
-          this.cancelRequest = c
-        }),
+        ...this.payload,
+        params: {
+          ...this.payload?.params,
+          ...searchParams,
+          page: this.nextPage || 1,
+          cancelToken: new CancellationToken((c) => {
+            this.cancelRequest = c
+          }),
+        },
       })
     )?.data
     this.nextPage = responseData?.next || null
@@ -57,8 +59,7 @@ export class DispatcherMixin extends Vue {
 
   async refresh(): Promise<void> {
     this.reset()
-    console.log('refresh')
-    await this.dispatchAction(this.params)
+    await this.dispatchAction()
   }
 
   @Watch('params')
