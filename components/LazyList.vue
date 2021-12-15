@@ -40,16 +40,11 @@
 import { Component, Prop, Ref } from 'nuxt-property-decorator'
 import { DispatcherMixin } from '~/mixins'
 
-type FetchTrigger = 'activated' | 'mounted'
-type ItemValue = any
-
 @Component
 export default class LazyList extends DispatcherMixin {
   @Prop({ default: 4 }) readonly placeholders!: number
-  @Prop({ default: false }) readonly refreshOnActivated!: boolean
-  @Prop({ default: 'activated' }) readonly trigger!: FetchTrigger
   @Prop({ validator: (value: number) => value > 0 }) readonly renewInterval?: number
-  @Prop() readonly processor?: (items: ItemValue[] | null) => ItemValue[] | null
+  @Prop() readonly processor?: (items: any[] | null) => any[] | null
 
   @Prop() readonly listClass?: string | object | any[]
   @Prop() readonly containerClass?: string | object | any[]
@@ -66,7 +61,7 @@ export default class LazyList extends DispatcherMixin {
     this.infiniteScroll && this.loadNextPage()
   }
 
-  get processedItems(): ItemValue[] | null {
+  get processedItems(): any[] | null {
     return this.processor?.call(null, this.items) || this.items
   }
 
@@ -102,22 +97,16 @@ export default class LazyList extends DispatcherMixin {
   }
 
   fetch(): void {
-    this.trigger === 'mounted' && !this.items && this.dispatch()
+    !this.items && this.dispatch()
     this.infiniteScroll
       && this.scrollArea.addEventListener('scroll', this.loadNextPage)
-    this.setIntervalTimer()
-  }
-
-  activated(): void {
-    this.refreshOnActivated && this.reset()
-    this.trigger === 'activated' && !this.items && this.dispatch()
     this.setIntervalTimer()
   }
 
   private setIntervalTimer() {
     if (this.renewInterval) {
       this.renewTimer = setInterval(() => {
-        this.reset(false, true) // not just refresh to call scroll-related `dispatch`
+        this.reset(false, true) // not just refresh, call scroll-related `dispatch`
         this.dispatch(true)
       }, this.renewInterval)
     }
