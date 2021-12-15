@@ -45,3 +45,8 @@
     @apply tw-link;
   }
 }
+
+pre {
+  @apply tw-rounded-lg;
+  font-size: 1rem !important;
+}

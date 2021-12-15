@@ -131,6 +131,9 @@ module.exports = {
         '2xs': '320px',
         'xs': '400px',
       },
+      padding: {
+        section: '8rem',
+      },
     },
   },
   plugins: [

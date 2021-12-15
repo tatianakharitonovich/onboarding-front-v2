@@ -1,5 +1,5 @@
 <template>
-  <section class="section">
+  <section class="tw-py-section">
     <div class="tw-container">
       <nuxt-content :document="greater" />
     </div>
@@ -37,9 +37,3 @@ export default class HomePage extends Vue {
   greater?: FetchReturn
 }
 </script>
-
-<style lang="scss" scoped>
-.section {
-  @apply tw-py-32;
-}
-</style>

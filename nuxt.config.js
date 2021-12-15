@@ -74,6 +74,11 @@ export default {
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {
     apiPrefix: 'page',
+    markdown: {
+      prism: {
+        theme: 'prism-themes/themes/prism-one-dark.css',
+      },
+    },
   },
 
   // Buefy module configuration: https://github.com/buefy/nuxt-buefy#options
