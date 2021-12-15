@@ -11,6 +11,10 @@ module.exports = {
   ],
   plugins: [],
   rules: {
+    'camelcase': 'off',
+    'import/named': 'off',
+    'no-useless-constructor': 'off',
+    'no-control-regex': 'off',
     'no-console': 'warn',
     'brace-style': ['error', '1tbs'],
     'curly': ['error', 'all'],
@@ -19,5 +23,6 @@ module.exports = {
       named: 'never',
       asyncArrow: 'always',
     }],
+    'vue/no-v-model-argument': 'off',
   },
 }

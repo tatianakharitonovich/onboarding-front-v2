@@ -4,7 +4,34 @@ module.exports = {
     'stylelint-config-standard',
     'stylelint-config-recommended-vue',
   ],
-  // add your custom config here
-  // https://stylelint.io/user-guide/configuration
-  rules: {},
+  rules: {
+    'declaration-empty-line-before': 'never',
+    'no-descending-specificity': null,
+    'selector-pseudo-element-no-unknown': [
+      true,
+      {
+        ignorePseudoElements: ['v-deep'],
+      },
+    ],
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: [
+          'include',
+          'mixin',
+          'function',
+          'return',
+          'for',
+          'tailwind',
+          'each',
+          'use',
+          'forward',
+          'extend',
+          'if',
+          'else',
+          'layer',
+        ],
+      },
+    ],
+  },
 }

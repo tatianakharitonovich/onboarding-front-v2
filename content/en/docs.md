@@ -4,6 +4,12 @@ title: Introduction
 ---
 # Hello
 
-```js
-import { some } from './that'
-```
+Intro
+
+- Nuxt 2
+- Vue 2
+- Arch
+- UI Kits
+- tailwindcss
+- scss
+- i18n
