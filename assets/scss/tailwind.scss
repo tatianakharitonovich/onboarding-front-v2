@@ -56,7 +56,10 @@
 
   // shadows
   --s-card: 0 1rem 1rem rgba(var(--c-color-base), 0.25);
-  --s-title: 0 0.25em 0.5em rgba(var(--c-color-base), 0.5);
+  --s-title: none;
+
+  // opacities
+  --o-nav: 0.85;
 }
 .dark-mode {
   /* DARK THEME */
@@ -64,7 +67,7 @@
   --c-accent-brighter: 165, 137, 255;
   // text
   --c-color-base: 255, 255, 255;
-  --c-color-dim-1: 227, 227, 229;
+  --c-color-dim-1: 207, 207, 211;
   --c-color-dim-2: 75, 75, 96;
   --c-color-dim-3: 45, 45, 57;
   // bg
@@ -80,5 +83,8 @@
 
   // shadows
   --s-card: 0 1rem 1rem rgba(var(--c-color-base), 0.25);
-  --s-title: 0 0.25em 0.5em rgba(var(--c-color-base), 0.5);
+  --s-title: 0 0.1em 0.2em rgba(var(--c-black), 0.5);
+
+  // opacities
+  --o-nav: 0.95;
 }

@@ -8,7 +8,7 @@ module.exports = ({ addBase, theme, addUtilities }) => {
     fontFamily: theme('fontFamily.display'),
     fontWeight: theme('fontWeight.black'),
     lineHeight: theme('lineHeight.none'),
-    dropShadow: theme('dropShadow.title'),
+    textShadow: theme('dropShadow.title'),
   }
   const headers = {
     h1: {

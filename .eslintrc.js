@@ -9,8 +9,7 @@ module.exports = {
     'plugin:nuxt/recommended',
     '@antfu/eslint-config',
   ],
-  plugins: [
-  ],
+  plugins: [],
   rules: {
     'no-console': 'warn',
     'brace-style': ['error', '1tbs'],

@@ -40,7 +40,7 @@ module.exports = {
       '2xs': '.675rem',
       'xs': '.75rem',
       'sm': '.875rem',
-      'base': '1rem',
+      'normal': '1rem',
       'lg': '1.125rem',
       'xl': '1.25rem',
       '2xl': '1.5rem',
@@ -116,6 +116,9 @@ module.exports = {
     opacity: {
       0: 0,
       100: 1,
+    },
+    backgroundOpacity: {
+      nav: 'var(--o-nav)',
     },
     boxShadow: {
       card: 'var(--s-card)',

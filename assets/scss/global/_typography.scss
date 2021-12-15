@@ -1,0 +1,42 @@
+.text {
+  max-width: 54rem;
+  @apply tw-mx-auto tw-text-lg;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    padding-bottom: 0.875em;
+  }
+  p {
+    padding-bottom: 1em;
+  }
+  p,
+  li {
+    @apply tw-text-dim-1;
+  }
+  ul {
+    list-style: square;
+  }
+  ol {
+    list-style: decimal-leading-zero;
+  }
+  ul,
+  ol {
+    @apply tw-pl-3 tw-pt-2 tw-pb-5;
+    li {
+      @apply tw-text-normal tw-pl-2;
+      padding-bottom: 0.75em;
+      &::marker {
+        @apply tw-font-black tw-text-accent;
+      }
+    }
+  }
+  hr {
+    @apply tw-mt-6 tw-mb-10 tw-text-dim-3;
+  }
+  a {
+    @apply tw-link;
+  }
+}

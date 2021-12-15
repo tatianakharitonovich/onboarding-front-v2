@@ -18,7 +18,6 @@ import { Vue, Component } from 'nuxt-property-decorator'
 import { title } from '~/package.json'
 
 @Component({
-  name: 'default',
   head(this: DefaultLayout): any {
     const i18nHead = this.$nuxtI18nHead({ addSeoAttributes: true })
     const pageName = this.getRouteBaseName()

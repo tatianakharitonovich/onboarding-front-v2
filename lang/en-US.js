@@ -13,6 +13,10 @@ export default {
       title: 'Artworks',
       description: 'More modern art to the blockchain! NFTs from our test server are here.',
     },
+    docs: {
+      title: 'README',
+      description: 'Read about vue, nuxt, vuex, clean architecture, tailwind, scss and other nerdy things.',
+    },
   },
   nav: {
     sandbox: 'Sandbox',

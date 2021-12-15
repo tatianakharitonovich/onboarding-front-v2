@@ -13,6 +13,10 @@ export default {
       title: 'Работы',
       description: 'Даёшь современное искусство в блокчейн! NFT с нашего тестового сервера - здесь.',
     },
+    docs: {
+      title: 'README',
+      description: 'Читать про vue, nuxt, vuex, чистую архитектуру, tailwind, scss и другие замысловатые вещи.',
+    },
   },
   nav: {
     sandbox: 'Песочница',

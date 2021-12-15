@@ -27,6 +27,7 @@ export class DispatcherMixin extends Vue {
     searchParams?: ReadParams,
     replace?: boolean,
   ): Promise<void> {
+    console.log(this)
     this.loading = !replace && true
     const CancellationToken = this.$axios.CancelToken
     const responseData: ReadData | undefined = (
@@ -56,6 +57,7 @@ export class DispatcherMixin extends Vue {
 
   async refresh(): Promise<void> {
     this.reset()
+    console.log('refresh')
     await this.dispatchAction(this.params)
   }
 
