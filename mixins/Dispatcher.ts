@@ -72,6 +72,11 @@ export class DispatcherMixin extends Vue {
 
   @Watch('items', { deep: true })
   onItemsChange(value: ItemValue[] | null): void {
-    this.$emit('update', value)
+    this.$emit('update:items', value)
+  }
+
+  @Watch('count')
+  onCountChange(value: number | null): void {
+    this.$emit('update:count', value)
   }
 }

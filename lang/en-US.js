@@ -1,8 +1,11 @@
 export default {
-  hello: 'Hello.',
+  hello: 'hello',
+  label: '@.capitalize:hello.',
+  greater: '@.capitalize:hello, {name}.',
   loading: 'Loading...',
   items: {
     title: '«Artworks» from test server',
+    counter: 'No items | 1 item | {count} items',
   },
   meta: {
     index: {

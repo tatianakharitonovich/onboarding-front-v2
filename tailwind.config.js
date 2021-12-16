@@ -119,6 +119,8 @@ module.exports = {
     },
     backgroundOpacity: {
       nav: 'var(--o-nav)',
+      quote: 'var(--o-quote)',
+      code: 'var(--o-code)',
     },
     boxShadow: {
       card: 'var(--s-card)',
@@ -130,9 +132,6 @@ module.exports = {
       screens: {
         '2xs': '320px',
         'xs': '400px',
-      },
-      padding: {
-        section: '8rem',
       },
     },
   },
@@ -146,6 +145,10 @@ module.exports = {
         '.b': {
           borderWidth: theme('borderWidth.DEFAULT'),
           borderStyle: 'solid',
+        },
+        '.section': {
+          paddingTop: '5rem',
+          paddingBottom: '8rem',
         },
       })
       addComponents({

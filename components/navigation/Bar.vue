@@ -3,7 +3,7 @@
     <div class="nav-bar-container">
       <div class="nav-bar-start">
         <h4 class="tw-hidden md:tw-inline-block tw-pb-0.5">
-          {{ $t('hello') }}
+          {{ $t('label') }}
         </h4>
         <ul class="nav-bar-group">
           <li v-for="link of links" :key="link.key">

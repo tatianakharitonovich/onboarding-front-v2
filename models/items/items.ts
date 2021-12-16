@@ -13,7 +13,8 @@ export class ItemModel implements IItemModel {
     this.id = data.id
     this.title = data.title
     this.description = data.description
-    this.collections = data.collections?.map(collection => new CollectionModel(collection)) || []
+    this.collections = data.collections
+      ?.map(collection => new CollectionModel(collection)) || []
     this.file = new MediaModel(data.file)
   }
 }

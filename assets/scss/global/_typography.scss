@@ -1,3 +1,7 @@
+::selection {
+  @apply tw-bg-accent tw-text-base;
+}
+
 .nuxt-content-container {
   position: static !important;
 }
@@ -5,14 +9,15 @@
 .nuxt-content,
 .text {
   max-width: 54rem;
-  @apply tw-mx-auto tw-text-lg;
+  @apply tw-mx-auto;
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    padding-bottom: 0.875em;
+    padding-top: 1em;
+    padding-bottom: 0.75em;
   }
   p {
     padding-bottom: 1em;
@@ -22,17 +27,19 @@
     @apply tw-text-dim-1;
   }
   ul {
+    @apply tw-pl-4;
     list-style: square;
   }
   ol {
+    @apply tw-pl-7;
     list-style: decimal-leading-zero;
   }
   ul,
   ol {
-    @apply tw-pl-3 tw-pt-2 tw-pb-5;
+    @apply tw-pt-2 tw-pb-5;
     li {
       @apply tw-text-normal tw-pl-2;
-      padding-bottom: 0.75em;
+      padding-bottom: 0.625em;
       &::marker {
         @apply tw-font-black tw-text-accent;
       }
@@ -44,13 +51,26 @@
   a {
     @apply tw-link;
   }
+  img {
+    @apply tw-pt-6 tw-pb-12;
+  }
+  blockquote {
+    font-size: 0.9rem;
+    @apply tw-border-l-2 tw-rounded-r tw-border-accent tw-pl-5 tw-pr-8 tw-pt-4 tw-pb-0.5 tw-bg-dim-1 tw-bg-opacity-quote;
+  }
+  > p > code,
+  > ul > li > code,
+  > ul > li > p > code,
+  blockquote code {
+    @apply tw-text-accent tw-bg-accent tw-bg-opacity-code tw-px-1 tw-rounded;
+  }
 }
 
-pre
-
-
-
-{
-  @apply tw-rounded-lg;
-  font-size: 1rem !important;
+pre {
+  font-size: 0.875rem !important;
+}
+blockquote,
+pre {
+  margin-top: -0.125rem !important;
+  margin-bottom: 1.5rem !important;
 }

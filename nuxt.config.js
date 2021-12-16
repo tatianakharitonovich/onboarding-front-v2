@@ -66,8 +66,9 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-
+    // https://github.com/nuxt-community/style-resources-module
     '@nuxtjs/style-resources',
+    // https://i18n.nuxtjs.org
     '@nuxtjs/i18n',
   ],
 
@@ -134,6 +135,8 @@ export default {
       useCookie: true,
       cookieKey: 'i18n_redirected',
     },
+    // String path is to resolve imports issue: https://github.com/nuxt-community/i18n-module/pull/605#issuecomment-644311878
+    vueI18n: '~/i18n.config.js',
   },
 
   // ColorMode module setup: https://color-mode.nuxtjs.org/#setup

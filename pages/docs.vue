@@ -1,5 +1,5 @@
 <template>
-  <section class="tw-py-section">
+  <section class="tw-section">
     <div class="tw-container">
       <nuxt-content :document="docs" />
     </div>

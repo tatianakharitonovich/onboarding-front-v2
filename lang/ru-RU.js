@@ -1,8 +1,11 @@
 export default {
-  hello: 'Привет.',
+  hello: 'привет',
+  label: '@.capitalize:hello.',
+  greater: '@.capitalize:hello, {name}.',
   loading: 'Загрузка...',
   items: {
     title: '"Работы" с тестового сервера',
+    counter: 'Нет работ | 1 работа | {count} работы | {count} работ',
   },
   meta: {
     index: {

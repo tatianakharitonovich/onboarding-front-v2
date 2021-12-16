@@ -2,14 +2,6 @@
 language: en
 title: Introduction
 ---
-# Hello
+# Soon
 
-Intro
-
-- Nuxt 2
-- Vue 2
-- Arch
-- UI Kits
-- tailwindcss
-- scss
-- i18n
+Sorry, I will add the documentation very soon! Please, switch to Russian if you speak it.

@@ -39,13 +39,13 @@
   --c-accent: 54, 13, 219;
   --c-accent-brighter: 74, 43, 239;
   // text
-  --c-color-base: 24, 24, 24;
-  --c-color-dim-1: 44, 45, 47;
+  --c-color-base: 34, 34, 34;
+  --c-color-dim-1: 64, 65, 72;
   --c-color-dim-2: 165, 166, 168;
   --c-color-dim-3: 197, 197, 201;
   // bg
-  --c-bg-base: 255, 255, 255;
-  --c-bg-dim-1: 233, 234, 241;
+  --c-bg-base: 251, 251, 255;
+  --c-bg-dim-1: 238, 239, 251;
 
   --c-theme-switcher-bg: var(--c-color-dim-2);
   --c-theme-switcher-bg-hover: var(--c-accent);
@@ -60,6 +60,8 @@
 
   // opacities
   --o-nav: 0.85;
+  --o-quote: 1;
+  --o-code: 0.2;
 }
 .dark-mode {
   /* DARK THEME */
@@ -67,12 +69,12 @@
   --c-accent-brighter: 165, 137, 255;
   // text
   --c-color-base: 255, 255, 255;
-  --c-color-dim-1: 207, 207, 211;
+  --c-color-dim-1: 197, 197, 203;
   --c-color-dim-2: 75, 75, 96;
   --c-color-dim-3: 45, 45, 57;
   // bg
-  --c-bg-base: 19, 19, 24;
-  --c-bg-dim-1: 30, 30, 34;
+  --c-bg-base: 29, 29, 34;
+  --c-bg-dim-1: 80, 80, 84;
 
   --c-theme-switcher-bg: var(--c-color-dim-2);
   --c-theme-switcher-bg-hover: var(--c-accent);
@@ -87,4 +89,6 @@
 
   // opacities
   --o-nav: 0.95;
+  --o-quote: 0.25;
+  --o-code: 0.2;
 }
