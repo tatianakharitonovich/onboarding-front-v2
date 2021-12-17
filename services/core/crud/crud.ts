@@ -43,8 +43,9 @@ export class ApiService implements IApiService {
     const cleanedData = this.cleanObject(data)
     return Object.keys(cleanedData).reduce((formData, prop) => {
       const value = cleanedData[prop]
+      const isSimpleArray = Array.isArray(value) && value.every((i: any) => ['string', 'number'].includes(typeof i))
       const valueString: string | Blob
-        = Array.isArray(value) && value.some((i: any) => typeof i !== 'string')
+        = typeof value === 'object' && !isSimpleArray
           ? JSON.stringify(value)
           : (value as string | Blob)
       formData.append(prop, valueString)
