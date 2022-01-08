@@ -129,7 +129,7 @@ export default {
     ],
     seo: true,
     lazy: true,
-    langDir: 'lang/',
+    langDir: 'lang',
     defaultLocale: 'en',
     detectBrowserLanguage: {
       useCookie: true,
