@@ -9024,6 +9024,11 @@ postcss-safe-parser@^6.0.0:
   resolved "https://registry.yarnpkg.com/postcss-safe-parser/-/postcss-safe-parser-6.0.0.tgz#bb4c29894171a94bc5c996b9a30317ef402adaa1"
   integrity sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==
 
+postcss-scss@^4.0.2:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/postcss-scss/-/postcss-scss-4.0.3.tgz#36c23c19a804274e722e83a54d20b838ab4767ac"
+  integrity sha512-j4KxzWovfdHsyxwl1BxkUal/O4uirvHgdzMKS1aWJBAV0qh2qj5qAZqpeBfVUYGWv+4iK9Az7SPyZ4fyNju1uA==
+
 postcss-selector-matches@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/postcss-selector-matches/-/postcss-selector-matches-4.0.0.tgz#71c8248f917ba2cc93037c9637ee09c64436fcff"
@@ -9141,7 +9146,7 @@ postcss@7.x.x, postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.17,
     picocolors "^0.2.1"
     source-map "^0.6.1"
 
-postcss@^8.1.10, postcss@^8.1.6, postcss@^8.2.15, postcss@^8.3.5, postcss@^8.4.0, postcss@^8.4.5:
+postcss@^8.1.10, postcss@^8.1.6, postcss@^8.2.15, postcss@^8.2.8, postcss@^8.3.5, postcss@^8.4.0, postcss@^8.4.5:
   version "8.4.6"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.6.tgz#c5ff3c3c457a23864f32cb45ac9b741498a09ae1"
   integrity sha512-OovjwIzs9Te46vlEx7+uXB0PLijpwjXGKXjVGGPIGubGpq7uh5Xgf6D6FiJ/SzJMBosHDp6a2hiXOS97iBXcaA==
@@ -10666,23 +10671,32 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
-stylelint-config-html@>=1.0.0:
+stylelint-config-html@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-html/-/stylelint-config-html-1.0.0.tgz#172acb996ee4c854e8c670fcff77ff0d98d3bec2"
   integrity sha512-rKQUUWDpaYC7ybsS6tLxddjn6DxhjSIXybElSmcTyVQj3ExhmU3q+l41ktrlwHRyY0M5SkTkZiwngvYPYmsgSQ==
 
-stylelint-config-recommended-vue@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-recommended-vue/-/stylelint-config-recommended-vue-1.1.0.tgz#e0217c12475141babc9809e2c4abc137841cf6c9"
-  integrity sha512-6O9gHdZ5nmnpq+qJv19pLEcZTZ/BV7ZzBmtl0J/kx92tGwe4CRqoO//SswibLWQP/1VwOaTrjJxN497pNfw7VA==
+stylelint-config-recommended-scss@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/stylelint-config-recommended-scss/-/stylelint-config-recommended-scss-5.0.2.tgz#193f483861c76a36ece24c52eb6baca4838f4a48"
+  integrity sha512-b14BSZjcwW0hqbzm9b0S/ScN2+3CO3O4vcMNOw2KGf8lfVSwJ4p5TbNEXKwKl1+0FMtgRXZj6DqVUe/7nGnuBg==
   dependencies:
-    stylelint-config-html ">=1.0.0"
-    stylelint-config-recommended ">=6.0.0"
+    postcss-scss "^4.0.2"
+    stylelint-config-recommended "^6.0.0"
+    stylelint-scss "^4.0.0"
 
-stylelint-config-recommended@>=6.0.0, stylelint-config-recommended@^6.0.0:
+stylelint-config-recommended@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-6.0.0.tgz#fd2523a322836005ad9bf473d3e5534719c09f9d"
   integrity sha512-ZorSSdyMcxWpROYUvLEMm0vSZud2uB7tX1hzBZwvVY9SV/uly4AvvJPPhCcymZL3fcQhEQG5AELmrxWqtmzacw==
+
+stylelint-config-standard-scss@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-standard-scss/-/stylelint-config-standard-scss-3.0.0.tgz#dafc4fa5538d0ed833bf0a7d391e075683ffd96c"
+  integrity sha512-zt3ZbzIbllN1iCmc94e4pDxqpkzeR6CJo5DDXzltshuXr+82B8ylHyMMARNnUYrZH80B7wgY7UkKTYCFM0UUyw==
+  dependencies:
+    stylelint-config-recommended-scss "^5.0.2"
+    stylelint-config-standard "^24.0.0"
 
 stylelint-config-standard@^24.0.0:
   version "24.0.0"
@@ -10690,6 +10704,17 @@ stylelint-config-standard@^24.0.0:
   integrity sha512-+RtU7fbNT+VlNbdXJvnjc3USNPZRiRVp/d2DxOF/vBDDTi0kH5RX2Ny6errdtZJH3boO+bmqIYEllEmok4jiuw==
   dependencies:
     stylelint-config-recommended "^6.0.0"
+
+stylelint-scss@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-4.1.0.tgz#39b808696f8152081163d970449257ff80b5c041"
+  integrity sha512-BNYTo7MMamhFOlcaAWp2dMpjg6hPyM/FFqfDIYzmYVLMmQJqc8lWRIiTqP4UX5bresj9Vo0dKC6odSh43VP2NA==
+  dependencies:
+    lodash "^4.17.21"
+    postcss-media-query-parser "^0.2.3"
+    postcss-resolve-nested-selector "^0.1.1"
+    postcss-selector-parser "^6.0.6"
+    postcss-value-parser "^4.1.0"
 
 stylelint-webpack-plugin@^2.3.1:
   version "2.3.2"

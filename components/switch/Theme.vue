@@ -56,8 +56,7 @@ export default class ThemeSwitcher extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@use "sass:math";
-
+@use 'sass:math';
 .theme-toggle {
   @include circle(2.5rem);
   @apply tw-cursor-pointer tw-duration-300 hover:tw-transition-none;
@@ -74,17 +73,17 @@ export default class ThemeSwitcher extends Vue {
   .sun-rays {
     @apply tw-duration-300;
   }
-  $innerSize: 0.675rem;
+  $inner-size: 0.675rem;
   $size: 1rem;
   .moon-area {
     $shift: 0.25rem;
-    $initInnerSize: $innerSize + $shift;
+    $init-inner-size: $inner-size + $shift;
     @keyframes appear {
       0% {
-        @include circle($initInnerSize);
+        @include circle($init-inner-size);
       }
       100% {
-        @include circle($innerSize);
+        @include circle($inner-size);
       }
     }
     @include circle($size);
@@ -96,7 +95,6 @@ export default class ThemeSwitcher extends Vue {
       animation: appear 0.3s forwards;
     }
   }
-
   .sun-rays {
     @include set-size($size);
     @apply tw-opacity-0 tw-justify-center tw-items-center;
@@ -124,7 +122,7 @@ export default class ThemeSwitcher extends Vue {
     .moon-area {
       transform: scale(0.9);
       &-vector {
-        right: -$innerSize;
+        right: -$inner-size;
       }
     }
     .sun-rays {

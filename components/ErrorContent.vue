@@ -25,8 +25,7 @@ export default class ErrorContent extends Vue {
 </script>
 
 <style lang="scss">
-@use "sass:math";
-
+@use 'sass:math';
 .page {
   @apply tw-flex-1 md:tw-items-center tw-py-20 tw-flex-center-x;
 }
