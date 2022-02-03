@@ -4,7 +4,40 @@
     "titleBar.activeBackground": "#17233a",
     "titleBar.activeForeground": "#e2e2ff"
   },
-  "i18n-ally.localesPaths": [
-    "lang"
-  ]
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true,
+  },
+  "editor.tabSize": 2,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": true,
+  "scss.lint.unknownAtRules": "ignore",
+  "stylelint.configFile": ".stylelintrc",
+  "stylelint.snippet": [
+    "css",
+    "less",
+    "postcss",
+    "scss",
+    "sass",
+    "html",
+    "vue"
+  ],
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "sass",
+    "scss",
+    "html",
+    "vue"
+  ],
+  "i18n-ally.localesPaths": "lang",
+  "i18n-ally.displayLanguage": "en-US",
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.sortKeys": true,
+  "i18n-ally.enabledParsers": [
+    "js"
+  ],
 }

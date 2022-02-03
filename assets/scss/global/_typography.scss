@@ -54,7 +54,8 @@
   }
   blockquote {
     font-size: 0.9rem;
-    @apply tw-border-l-2 tw-rounded-r tw-border-accent tw-pl-5 tw-pr-8 tw-pt-4 tw-pb-0.5 tw-bg-dim-1 tw-bg-opacity-quote;
+    @apply tw-border-l-2 tw-rounded-r tw-border-accent;
+    @apply tw-pl-5 tw-pr-8 tw-pt-4 tw-pb-0.5 tw-bg-dim-1 tw-bg-opacity-quote;
   }
   > p > code,
   > ul > li > code,
