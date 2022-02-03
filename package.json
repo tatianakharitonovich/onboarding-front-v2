@@ -50,9 +50,9 @@
     "sass": "^1.37.5",
     "sass-loader": "^10.1.1",
     "simple-git-hooks": "^2.7.0",
-    "stylelint": "^14.1.0",
-    "stylelint-config-recommended-vue": "^1.1.0",
-    "stylelint-config-standard": "^24.0.0"
+    "stylelint": "^14.1.0",    
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-config-recommended-vue": "^1.1.0"
   },
   "resolutions": {
     "coa": "2.0.2"

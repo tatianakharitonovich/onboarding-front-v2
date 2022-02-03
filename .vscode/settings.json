@@ -3,5 +3,8 @@
     "activityBar.background": "#0e192c",
     "titleBar.activeBackground": "#17233a",
     "titleBar.activeForeground": "#e2e2ff"
-  }
+  },
+  "i18n-ally.localesPaths": [
+    "lang"
+  ]
 }

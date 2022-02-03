@@ -1,5 +1,9 @@
 module.exports = {
-  extends: ['stylelint-config-standard'],
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-recommended-vue',
+  ],
+  ignoreFiles: ['**/*.scss'],
   rules: {
     'declaration-empty-line-before': 'never',
     'rule-empty-line-before': 'never',

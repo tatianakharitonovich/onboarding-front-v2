@@ -1,11 +1,9 @@
 ::selection {
   @apply tw-bg-accent tw-text-base;
 }
-
 .nuxt-content-container {
   position: static !important;
 }
-
 .nuxt-content,
 .text {
   max-width: 54rem;
@@ -65,7 +63,6 @@
     @apply tw-text-accent tw-bg-accent tw-bg-opacity-code tw-px-1 tw-rounded;
   }
 }
-
 pre {
   font-size: 0.875rem !important;
 }
