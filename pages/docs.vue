@@ -13,6 +13,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component({
   async asyncData(ctx: Context) {
+    console.log('test')
     return {
       docs: (await ctx.$content(ctx.i18n.locale, 'docs').fetch()) as FetchReturn,
     }
